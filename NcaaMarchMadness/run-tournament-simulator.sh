@@ -1,1 +1,0 @@
-src/main/script/run-tournament-simulator.sh

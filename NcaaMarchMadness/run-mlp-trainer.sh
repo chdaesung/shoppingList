@@ -1,1 +1,0 @@
-src/main/script/run-mlp-trainer.sh
