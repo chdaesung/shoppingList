@@ -26,8 +26,8 @@ const appSettings = {
         shopping_list : './scripts/shopping_list.sql',
         shopping_list_item : './scripts/shopping_list_item.sql'
     },
-    brand_file_name : '../data/Grocery_Brands_Database.csv',
-    item_file_name : '../data/Grocery_UPC_Database.csv',
+    brand_file_name : '../data/smallGrocery_Brands_Database.csv',
+    item_file_name : '../data/smallGrocery_UPC_Database.csv',
 
     server_host : 'localhost',
     server_listen_port : 8080,
