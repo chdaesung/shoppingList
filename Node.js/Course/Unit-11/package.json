@@ -35,7 +35,7 @@
     "log4js": "^6.4.0",
     "morgan": "~1.9.1",
     "pug": "^3.0.1",
-    "sqlite3": "4.0.2"
+    "sqlite3": "4.0.9"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
