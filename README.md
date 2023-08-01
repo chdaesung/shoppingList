@@ -1,7 +1,7 @@
 ## Node.js
 
 ```
-IBM-Developer/Node.js/
+shoppingList/Node.js/
 └── Node.js
     └── Course
         ├── LICENSE
