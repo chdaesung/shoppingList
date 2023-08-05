@@ -83,7 +83,5 @@ function removeItem(listId, itemId) {
 module.exports.create = create;
 module.exports.findById = findById;
 module.exports.findByIdWithAllItems = findByIdWithAllItems;
-//module.exports.update = update;
 module.exports.addItem = addItem;
-//module.exports.updateItem = updateItem;
-//module.exports.removeItem = removeItem;
+// 아래에 export 문을 추가하십시오.
