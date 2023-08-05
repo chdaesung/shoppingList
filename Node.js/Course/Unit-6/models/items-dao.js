@@ -23,8 +23,7 @@
  * file located in this directory.
  */
 
-// Node Dev TODO: Add your code here
-// TODO: a particular require() goes here to access the Sqlite3 implementation
+const itemsDaoImpl = require('./items-dao-sqlite3');
 
 /**
  * Find the Item object by the specified ID
@@ -32,20 +31,28 @@
  * 
  * @param id - the ID of the item record (SQL) or document (NoSQL)
  * to locate
+ * 
+ * @return Promise - 
+ *  resolve(): the Item object that matches the id
+ *          or null if one could not be located for that id 
+ *  reject(): the err object from the underlying data store
  */
 function findById(id) {
-// Node Dev TODO: Add your code here
+    return itemsDaoImpl.findById(id);
 }
 
 /**
  * Find all Items objects that match the specified
  * partial description.
  * 
- * @param partialDescription - the partial description to match
- * and return items whose description contains this partial description
+ * @return Promise - 
+ *  resolve(): all Item objects that contain the partial
+ *          descriptin provided or an empty array if nothing
+ *          could not be located for that partialDescription 
+ *  reject(): the err object from the underlying data store
  */
 function findByDescription(partialDescription) {
-// Node Dev TODO: Add your code here
+    return itemsDaoImpl.findByDescription(partialDescription);
 }
 
 /**
@@ -54,10 +61,16 @@ function findByDescription(partialDescription) {
  * 
  * @param upc - the UPC of the item record (SQL) or document (NoSQL)
  * to locate
+ * 
+ * @return Promise - 
+ *  resolve(): the Item object that matches the UPC symbol
+ *          or null if one could not be located for that UPC
+ *  reject()): the err object from the underlying data store.
  */
 function findByUpc(upc) {
-// Node Dev TODO: Add your code here
+    return itemsDaoImpl.findByUpc(upc);
 }
 
-// Node Dev TODO: Add your code here
-// TODO: make sure to export functions that need to be visible outside this module
+module.exports.findById = findById;
+module.exports.findByDescription = findByDescription;
+module.exports.findByUpc = findByUpc;

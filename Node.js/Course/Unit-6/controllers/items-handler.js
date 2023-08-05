@@ -15,10 +15,11 @@
  */
 'use strict'
 
-// Node Dev TODO: Add your code here
-// TODO: figure out what require()s go here
+const logger = require('../utils/logger');
 
-/**
+const itemsDao = require('../models/items-dao');
+
+ /**
   * Handle (that is, resolve() or reject()) request for items search
   * (e.g., /items?upc=123456789012)
   * 
@@ -32,8 +33,8 @@
  function handleItemsSearch(request, resolve, reject, parsedUrl) {
     // Now get the query string from the URL
     let query = parsedUrl.query;
+    // By description?
     if (query.description) {
-        // By description?
         // Node developer: use this as a template for the other DAO calls
         logger.debug(`Query by description: ${query.description}`, 'handleItemsSearch()');
         // Query DAO: 
@@ -42,14 +43,23 @@
         }).catch((err) => {
             reject(err);
         });
+    // By upc?
     } else if (query.upc) {
-        // By upc?
-        // Node Dev TODO: Add your code here
-        reject('Node Dev TODO: WRITE CODE!');// Remove this when you're done
+        logger.debug(`Query by UPC: ${query.upc}`, 'handleItemsSearch()');
+        // Query DAO: 
+        itemsDao.findByUpc(query.upc).then((result) => {
+            resolve(result);// exact match or not found
+        }).catch((err) => {
+            reject(err);
+        });
+    // By id?
     } else if (query.id) {
-        // By id?
-        // Node Dev TODO: Add your code here
-        reject('Node Dev TODO: WRITE CODE!');// Remove this when you're done
+        logger.debug(`Query by ID: ${query.id}`, 'handleItemsSearch()');
+        itemsDao.findById(query.id).then((result) => {
+            resolve(result);// exact match or not found
+        }).catch((err) => {
+            reject(err);
+        });
     } else {
         let message = `Unsupported search param: ${parsedUrl.search}`;
         logger.error(message, 'handleItemsSearch()');
