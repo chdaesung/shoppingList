@@ -86,31 +86,8 @@ function handleListsCreate(request, resolve, reject) {
  * Call listsDao.update() after getting body using utils.processRequestBody()
  */
 function handleListsUpdate(request, resolve, reject, id) {
-	// TODO: WRITE CODE
-	utils
-		.processRequestBody(request)
-		.then((requestBody) => {
-			logger.debug(
-				`Calling listsDao.update() with request: ${requestBody}`,
-				'handleListsUpdate()'
-			);
-			let requestBodyJson = JSON.parse(requestBody);
-			listsDao
-				.update(id, requestBodyJson.description)
-				.then((result) => {
-					resolve(result);
-				})
-				.catch((err) => {
-					reject(err);
-				});
-		})
-		.catch((err) => {
-			logger.error(
-				`Error processing request body: ${err.message}`,
-				'handleListsUpdate()'
-			);
-			reject(err);
-		});
+	// Node Dev TODO: Add your code here
+	reject('Node Dev TODO: WRITE CODE!'); // Remove this when you're done
 }
 
 /**
@@ -216,35 +193,9 @@ function handleListsWithItemsUpdate(
 			`Calling listsDao.updateItem(listId=${id},secondaryResource=${secondaryResource},secondaryResourceId=${secondaryResourceId})`,
 			'handleListsWithItemsUpdate()'
 		);
-		utils
-			.processRequestBody(request)
-			.then((requestBody) => {
-				logger.debug(
-					`Calling listsDao.updateItem() with request: ${requestBody}`,
-					'handleListsWithItemsUpdate()'
-				);
-				let requestBodyJson = JSON.parse(requestBody);
-				listsDao
-					.updateItem(
-						id,
-						secondaryResourceId,
-						requestBodyJson.quantity,
-						requestBodyJson.pickedUp
-					)
-					.then((result) => {
-						resolve(result);
-					})
-					.catch((err) => {
-						reject(err);
-					});
-			})
-			.catch((err) => {
-				logger.error(
-					`Error processing request body: ${err.message}`,
-					'handleListsWithItemsUpdate()'
-				);
-				reject(err);
-			});
+		// Node Dev TODO: Add your code here
+		// Process request body (asynchronously), and "then" call the DAO
+		reject('Node Dev TODO: WRITE CODE!'); // Remove this when you're done
 	} else {
 		let message = `secondaryResource: ${secondaryResource} is not supported.`;
 		logger.error(message, 'handleListsWithItemsUpdate()');
@@ -267,18 +218,12 @@ function handleListsWithItemsDelete(
 	secondaryResource,
 	secondaryResourceId
 ) {
-	// TODO: WRITE CODE
 	if (secondaryResource == 'items') {
 		let message = `Calling listsDao.deleteItem(listId=${id},secondaryResource=${secondaryResource},secondaryResourceId=${secondaryResourceId})`;
 		logger.debug(message, 'handleListsWithItemsDelete()');
-		listsDao
-			.removeItem(id, secondaryResourceId)
-			.then((result) => {
-				resolve(result);
-			})
-			.catch((err) => {
-				reject(err);
-			});
+		// Node Dev TODO: Add your code here
+		// Process request body (asynchronously), and "then" call the DAO
+		reject('Node Dev TODO: WRITE CODE!'); // Remove this when you're done
 	} else {
 		let message = `secondaryResource: ${secondaryResource} is not supported.`;
 		logger.error(message, 'handleListsWithItemsDelete()');
