@@ -23,7 +23,7 @@
  * file located in this directory.
  */
 
-// TODO: figure out what "require"ments you need here
+//
 const listsDaoImpl = require('./lists-dao-sqlite3');
 
 /**

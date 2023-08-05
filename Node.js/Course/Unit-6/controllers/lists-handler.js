@@ -22,7 +22,7 @@
  * what to do first.
  */
 
-// TODO: Figure out what require()s you need here
+//
 const logger = require('../utils/logger');
 const utils = require('../utils/utils');
 
@@ -104,7 +104,7 @@ function handleListsFindByIdWithAllItems(
 	id,
 	secondaryResource
 ) {
-	// TODO: WRITE CODE
+	//
 	if (secondaryResource == 'items') {
 		logger.debug(
 			`Calling listsDao.findByIdWithAllItems(listId=${id},secondaryResource=${secondaryResource})`,
@@ -134,7 +134,7 @@ function handleListsFindByIdWithAllItems(
  * listsDao.addItem()
  */
 function handleListsAddItem(request, resolve, reject, id, secondaryResource) {
-	// TODO: WRITE CODE
+	//
 	if (secondaryResource == 'items') {
 		logger.debug(
 			`Calling listsDao.addItem(listId=${id},secondaryResource=${secondaryResource})`,
